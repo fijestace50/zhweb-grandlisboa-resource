@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杂志专题 · 澳门新葡京 | 城市之芯</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f1f3f5;
+            color: #2d3439;
+            line-height: 1.7;
+            padding: 1.5rem;
+        }
+
+        .magazine {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* hero 横幅卡片 */
+        .hero {
+            background: linear-gradient(145deg, #ffffff, #f7f9fc);
+            border-radius: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 4px rgba(0, 0, 0, 0.06);
+            padding: 3rem 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #e8edf2;
+            color: #3d4a5c;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            align-self: flex-start;
+            text-transform: uppercase;
+            border: 1px solid #d6dee6;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #1f2933;
+            line-height: 1.2;
+            max-width: 800px;
+        }
+
+        .hero h1 span {
+            font-weight: 600;
+            color: #1e3c5a;
+        }
+
+        .hero .subhead {
+            font-size: 1.15rem;
+            color: #4b5a6b;
+            max-width: 700px;
+            border-left: 3px solid #b3c4d6;
+            padding-left: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #ffffff;
+            border-radius: 1.6rem;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.02);
+            border: 1px solid #eaeef2;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05), 0 0 0 1px #d2dce6;
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 1rem;
+            color: #1e2b39;
+            border-bottom: 1px solid #e3e9ef;
+            padding-bottom: 0.6rem;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+            color: #31404e;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            background: #f0f4fa;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 500;
+            color: #1f3b54;
+        }
+
+        /* 两栏特点+场景 */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+        }
+
+        /* 页尾 */
+        .footer-card {
+            background: #edf2f8;
+            border-radius: 1.6rem;
+            padding: 2rem 2.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            border: 1px solid #dce4ec;
+            text-align: center;
+        }
+
+        .footer-card p {
+            color: #2b3a4a;
+            font-size: 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .footer-card .link-highlight {
+            font-weight: 600;
+            color: #1b344d;
+            text-decoration: none;
+            border-bottom: 1px solid #a7bccc;
+            transition: border-color 0.15s;
+        }
+
+        .footer-card .link-highlight:hover {
+            border-bottom-color: #1b344d;
+        }
+
+        /* FAQ 摘要（小字） */
+        .faq-mini {
+            margin-top: 1.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.8rem;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #3d536a;
+        }
+
+        .faq-mini span {
+            background: #e7edf4;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            border: 1px solid #d0dce8;
+        }
+
+        /* 响应式 */
+        @media (max-width: 780px) {
+            body {
+                padding: 1rem;
+            }
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .card {
+                padding: 1.5rem 1.2rem;
+            }
+            .footer-card {
+                padding: 1.6rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .hero .subhead {
+                font-size: 0.95rem;
+                padding-left: 0.8rem;
+            }
+            .card h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="magazine">
+
+    <!-- 首页横幅 背景说明 -->
+    <div class="hero">
+        <span class="hero-badge">✦ 杂志专题 · 城市地标</span>
+        <h1>在<span>澳门新葡京</span>，看见一座岛屿的现代剪影</h1>
+        <div class="subhead">
+            从南湾湖畔到文化交汇的都会节点，这里始终是旅者与城市对话的起点。不只是建筑，更是澳门故事的一面棱镜。
+        </div>
+    </div>
+
+    <!-- 三段自然介绍 第一段：背景/源起 -->
+    <div class="card">
+        <h2>城市肌理中的独特坐标</h2>
+        <p>
+            澳门半岛的轮廓线上，<a href="https://zhweb--grandlisboa.com" class="link-highlight" style="font-weight:600; color:#1b344d; text-decoration:none; border-bottom:1px solid #a7bccc;">澳门新葡京</a>以简洁的几何线条融入这片土地的历史层次。自落成以来，它便成为区域中辨识度极高的存在——不是孤立的装饰，而是与周围街市、老城、海湾共同呼吸的空间。许多人在黄昏时分经过，看见建筑轮廓与晚霞叠映，会不自觉地停下来。这种不经意的凝视，正是城市地标的真实意义。
+        </p>
+        <p>
+            从回归后的城市更新，到如今多元业态的聚合，<span class="highlight">澳门新葡京</span>一直以相对克制的姿态参与着澳门的日常。它不张扬，却因为位置与功能的交集，逐渐成为许多人行程单上的一个安静锚点。
+        </p>
+    </div>
+
+    <!-- 两栏布局：特点 + 场景体验 -->
+    <div class="two-column">
+        <div class="card">
+            <h2>空间 · 尺度与细节</h2>
+            <p>
+                内部设计强调通透与秩序，公共区域采用中性色调与自然光引导，避免过度装饰带来的视觉疲劳。走廊与大厅保留足够的留白，让行人不会感到压迫。无论是短暂停留还是较长时段的休息，空间的节奏都经过考量。
+            </p>
+            <p>
+                值得留意的是临窗区域——玻璃幕墙将南湾的波光或街市的烟火引入室内，形成一种静默的互动。许多常客说，在这里喝一杯咖啡，看天色变化，是澳门最舒服的放空方式之一。
+            </p>
+        </div>
+        <div class="card">
+            <h2>日常 · 交汇与流动</h2>
+            <p>
+                周边汇集了本地食肆、艺文空间和社区小店，步行范围内可以感受到澳门真实的生活气息。从<span class="highlight">澳门新葡京</span>出发，几分钟便能进入老城的窄巷，那里有葡式碎石路、百年庙宇和飘着蛋挞香的街角。这种新旧并置的体验，是这片区域最独特的魅力。
+            </p>
+            <p>
+                对于第一次来澳门的人，这里是一个友好的出发点；对于常访者，它又是熟悉的坐标。没有喧哗的导览，只有城市自然展开的节奏。
+            </p>
+        </div>
+    </div>
+
+    <!-- 第三段自然介绍：关于理解澳门的另一视角 -->
+    <div class="card">
+        <h2>澳门叙事中的安静章节</h2>
+        <p>
+            谈及澳门，人们往往先想到博彩与观光塔。但在这座城市的日常叙事里，还有一些沉静而持续的片段——比如老居民在傍晚散步的路线，比如某家开业数十年的面馆，比如<span class="highlight">澳门新葡京</span>门前那棵被悉心保留的老榕树。它们不占据头条，却构成了城市真正的底色。
+        </p>
+        <p>
+            如果你计划了解澳门除了浮光掠影之外的内容，不妨留一个下午，从<a href="https://zhweb--grandlisboa.com" style="font-weight:600; color:#1b344d; text-decoration:none; border-bottom:1px solid #a7bccc;">澳门新葡京</a>开始，沿着小巷慢慢走。你会发现，城市的厚度往往藏在那些没有标签的角落里。
+        </p>
+    </div>
+
+    <!-- 页尾访问提示 + FAQ 摘要 -->
+    <div class="footer-card">
+        <p style="margin-bottom: 0.5rem;">
+            更多关于这座城市地标的功能指引、交通信息与周边探索，可参阅整合资料页。
+            <br>
+            内容保持定期更新，力求客观、清晰。
+        </p>
+        <p style="margin-top: 0.2rem;">
+            <a href="https://zhweb--grandlisboa.com" class="link-highlight">澳门新葡京</a> —— 一座建筑，一种城市切片。
+        </p>
+        <div class="faq-mini">
+            <span>📍 位置 · 澳门半岛核心区</span>
+            <span>🕒 周边全天开放 · 建议午后探访</span>
+            <span>📎 步行可达 · 大三巴 / 妈阁</span>
+        </div>
+    </div>
+
+    <!-- 极简分隔 无附加内容 -->
+</div>
+</body>
+</html>
